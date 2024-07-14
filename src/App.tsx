@@ -5,7 +5,7 @@ import Loader from './components/Loader/Loader';
 import ErrorMessage from './components/ErrorMessage/ErrorMessage';
 import LoadMoreBtn from './components/LoadMoreBtn/LoadMoreBtn';
 import ImageModal from './components/ImageModal/ImageModal';
-import { Image, FetchPhotosResponse } from './types/ApiServiceType';
+import { Image } from './types/ApiServiceType';
 import ApiService from './services/ApiService';
 
 const App: React.FC = () => {
