@@ -5,8 +5,8 @@ import Loader from './components/Loader/Loader';
 import ErrorMessage from './components/ErrorMessage/ErrorMessage';
 import LoadMoreBtn from './components/LoadMoreBtn/LoadMoreBtn';
 import ImageModal from './components/ImageModal/ImageModal';
-import { Image } from './types/ApiServiceType';
-import ApiService from './services/ApiService';
+import { Image, FetchPhotosResponse } from './components/ApiService/ApiServiceType';
+import ApiService from './components/ApiService/ApiService';
 
 const App: React.FC = () => {
   const [query, setQuery] = useState<string>('');
@@ -20,7 +20,7 @@ const App: React.FC = () => {
     setLoading(true);
     try {
       const response = await ApiService(query, page);
-      setImages(prevImages => [...prevImages, ...response.data.results]);
+      setImages(prevImages => [...prevImages, ...response.results]);
       setPage(prevPage => prevPage + 1);
       setLoading(false);
     } catch (error: any) {
