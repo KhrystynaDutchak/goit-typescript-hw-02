@@ -15,6 +15,12 @@ export const ApiService = async (
     page: page,
   };
   const { data } = await axios.get<FetchPhotosResponse>("/search/photos/", { params });
+  
+  data.results = data.results.map(image => ({
+    ...image,
+    alt_description: image.alt_description || '',
+  }));
+
   console.log(data);
 
   return data;
