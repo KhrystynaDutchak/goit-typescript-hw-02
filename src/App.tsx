@@ -19,7 +19,7 @@ const App: React.FC = () => {
   const fetchImages = async () => {
     setLoading(true);
     try {
-      const response = await ApiService(query, page);
+      const response: FetchPhotosResponse = await ApiService(query, page);
       setImages(prevImages => [...prevImages, ...response.results]);
       setPage(prevPage => prevPage + 1);
       setLoading(false);
